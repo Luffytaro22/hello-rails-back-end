@@ -1,5 +1,5 @@
 class GreetingsController < ApplicationController
-	before_action :find_greetings
+  before_action :find_greetings
   def index
     @random = rand(0..4)
     @greeting = @greetings[@random]
