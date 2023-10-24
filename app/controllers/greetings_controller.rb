@@ -1,9 +1,14 @@
 class GreetingsController < ApplicationController
-
-  # GET /greetings
+	before_action :find_greetings
   def index
-    @greetings = Greeting.all
+    @random = rand(0..4)
+    @greeting = @greetings[@random]
+    render json: @greeting
+  end
 
-    render json: @greetings
+  private
+
+  def find_greetings
+    @greetings = Greeting.all
   end
 end
